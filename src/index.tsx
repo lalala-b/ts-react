@@ -1,11 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import routes from 'router/routes';
+
+const App: React.FC= () => {
+  return (
+    <Router>
+      <Switch>
+        {routes.map(({ path , component}) => (
+          <Route exact={true} key={path} path={path} component={component} />
+        ))}
+      </Switch>
+    </Router>
+  );
+}
+
 
 ReactDOM.render(
   <React.StrictMode> 
-    <App test={111} />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

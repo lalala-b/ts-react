@@ -1,0 +1,30 @@
+{
+	"extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+	"defaultSeverity": "warning",
+	"rules": {
+		// 对象属性是否按照顺序进行编写
+		"object-literal-sort-keys": false,
+		// jsx 中是否允许使用 lambda 语法
+		"jsx-no-lambda": false,
+		// 引入模块是否需要按照字母顺序
+		"ordered-imports": false,
+		// 不允许打印 console
+		"no-console": false,
+		// 不允许隐式的依赖模块，比如引用别名中的模块
+		"no-implicit-dependencies": false,
+		// 是否必须使用 === 取代 ==
+		"triple-equals": false,
+		// 对象成员是否需要按照顺序进行编写
+		"member-ordering": false
+	},
+	"linterOptions": {
+		"exclude": [
+			"config/**/*.js",
+			"webpack/**/*.js",
+			"node_modules/**/*.ts",
+			"coverage/lcov-report/*.js",
+			"src/**/*.js",
+			"src/**/*.jsx"
+		]
+	}
+}
