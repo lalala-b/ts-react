@@ -1,20 +1,26 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Backdrop, CircularProgress } from "@material-ui/core";
 import routes from 'router/routes';
-import { GlobalProvider } from 'contexts/global';
+import { GlobalProvider, GlobalContext, GlobalLoadingType } from 'contexts/global';
 
 const App: React.FC = () => {
+  const { loading } = useContext<GlobalLoadingType>(GlobalContext);
+
   return (
-    
-    <Router>
-      <Switch>
-        {routes.map(({ path , component}) => (
-          <Route exact={true} key={path} path={path} component={component} />
-        ))}
-      </Switch>
-    </Router>
-    
+    <>
+      <Backdrop open={loading} >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+      <Router>
+        <Switch>
+          {routes.map(({ path , component}) => (
+            <Route exact={true} key={path} path={path} component={component} />
+          ))}
+        </Switch>
+      </Router>
+    </>
   );
 }
 

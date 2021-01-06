@@ -1,11 +1,11 @@
 import { useState, createContext } from "react";
 
-interface GlobalLoadingType {
+export interface GlobalLoadingType {
     loading: boolean,
     setLoading?: React.Dispatch<boolean>,
 }
 
-interface GlobalProviderType {
+export interface GlobalProviderType {
     value?: GlobalLoadingType
 }
 
