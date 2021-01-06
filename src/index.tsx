@@ -10,7 +10,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Backdrop open={loading} >
+      <Backdrop open={loading} style={{ color: "#fff", zIndex: 999 }}>
         <CircularProgress color="inherit" />
       </Backdrop>
       <Router>
