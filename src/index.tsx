@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Backdrop, CircularProgress } from "@material-ui/core";
 import routes from 'router/routes';
-import { GlobalProvider, GlobalContext, GlobalLoadingType } from 'contexts/global';
+import { GlobalLoadingProvider, GlobalLoadingContext, GlobalLoadingType } from 'contexts/globalLoading';
 
 const App: React.FC = () => {
-  const { loading } = useContext<GlobalLoadingType>(GlobalContext);
+  const { loading } = useContext<GlobalLoadingType>(GlobalLoadingContext);
 
   return (
     <>
@@ -27,9 +27,9 @@ const App: React.FC = () => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalProvider>
+    <GlobalLoadingProvider>
       <App />
-    </GlobalProvider> 
+    </GlobalLoadingProvider> 
   </React.StrictMode>,
   document.getElementById('root')
 );
