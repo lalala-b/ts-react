@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import routes from 'router/routes';
+import { GlobalProvider } from 'contexts/global';
 
-const App: React.FC= () => {
+const App: React.FC = () => {
   return (
+    
     <Router>
       <Switch>
         {routes.map(({ path , component}) => (
@@ -12,13 +14,16 @@ const App: React.FC= () => {
         ))}
       </Switch>
     </Router>
+    
   );
 }
 
 
 ReactDOM.render(
-  <React.StrictMode> 
-    <App />
+  <React.StrictMode>
+    <GlobalProvider>
+      <App />
+    </GlobalProvider> 
   </React.StrictMode>,
   document.getElementById('root')
 );
