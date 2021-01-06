@@ -24,7 +24,7 @@ interface LoadingObserverType {
   emit: (key: string, data: boolean) => void
 }
 
-export const Observer: LoadingObserverType = {
+export const LoadingObserver: LoadingObserverType = {
   list: {},
   on(key, fn) {
     if (!this.list[key]) {
@@ -42,8 +42,8 @@ export const Observer: LoadingObserverType = {
 export const GlobalLoadingProvider: React.FC<GlobalLoadingProviderType> = ({ value, children }) => {
   const [loading, setLoading] = useState<boolean>(false);
 
-  Observer.on("openLoading", setLoading);
-  Observer.on("closeLoading", setLoading);
+  LoadingObserver.on("openLoading", setLoading);
+  LoadingObserver.on("closeLoading", setLoading);
 
   return (
     <GlobalLoadingContext.Provider
