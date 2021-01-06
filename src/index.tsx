@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Backdrop, CircularProgress } from "@material-ui/core";
 import routes from 'router/routes';
-import { GlobalLoadingProvider, GlobalLoadingContext, GlobalLoadingType } from 'contexts/globalLoading';
+import { GlobalLoadingProvider, GlobalLoadingContext } from 'contexts/globalLoading';
 
 const App: React.FC = () => {
-  const { loading } = useContext<GlobalLoadingType>(GlobalLoadingContext);
+  const { loading } = useContext(GlobalLoadingContext);
 
   return (
     <>
