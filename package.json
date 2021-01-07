@@ -87,6 +87,10 @@
     "*.{json,md}": [
       "prettier --write",
       "git add --force"
+    ],
+    "*.{css,less,styl,scss,sass,sss}": [
+      "stylelint --fix",
+      "git add --force"
     ]
   },
   "eslintConfig": {
