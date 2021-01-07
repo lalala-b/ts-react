@@ -13,7 +13,7 @@ export const get = (
   url: string,
   val?: any,
   config: ConfigType = {}
-): Promise<any> =>
+): Promise<void> =>
   myAxios.get(url, {
     params: val,
     ...config,
@@ -21,7 +21,7 @@ export const get = (
   });
 
 // 删除公用方法
-export const del = (url: string, data: any, config: any = {}): Promise<any> =>
+export const del = (url: string, data: any, config: any = {}): Promise<void> =>
   myAxios.delete(url, {
     data: config.customParams
       ? { ...data, customParams: config.customParams }
@@ -29,7 +29,11 @@ export const del = (url: string, data: any, config: any = {}): Promise<any> =>
     ...config,
   });
 
-export const post = (url: string, val: any, config: any = {}): Promise<any> => {
+export const post = (
+  url: string,
+  val: any,
+  config: any = {}
+): Promise<void> => {
   let contentType;
 
   return myAxios.request({
@@ -46,7 +50,7 @@ export const post = (url: string, val: any, config: any = {}): Promise<any> => {
 };
 
 // 修改数据公用方法
-export const put = (url: string, val: any, config: any = {}): Promise<any> => {
+export const put = (url: string, val: any, config: any = {}): Promise<void> => {
   let contentType;
 
   return myAxios.request({
@@ -65,7 +69,7 @@ export const postFormData = (
   url: string,
   val: any,
   config: any = {}
-): Promise<any> =>
+): Promise<void> =>
   myAxios.request({
     url,
     data: val,
