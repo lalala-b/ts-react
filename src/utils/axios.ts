@@ -8,22 +8,22 @@ import axios from "./request";
 const requestList: any[] = [];
 
 interface CustomParamsType {
-  notLoading?: boolean
+  notLoading?: boolean;
 }
 
 interface RequestConfigType extends AxiosRequestConfig {
-  customParams?: any
+  customParams?: any;
 }
 
 interface ResponseConfigType extends AxiosResponse {
-  config: RequestConfigType,
+  config: RequestConfigType;
 }
 
 const preventEvent = (event: Event) => {
   event.stopPropagation();
   event.preventDefault();
   event.stopImmediatePropagation();
-}
+};
 
 const requestAfter = (customParams: CustomParamsType): void => {
   if (customParams?.notLoading) return;
@@ -33,7 +33,7 @@ const requestAfter = (customParams: CustomParamsType): void => {
     window.removeEventListener("keyup", preventEvent, true);
     window.removeEventListener("keydown", preventEvent, true);
   }
-}
+};
 
 // function addRequestLog(customParams, url, requestId, requestData) {
 //   //防止错误影响正常流程
@@ -66,7 +66,7 @@ const requestBefore = (customParams: CustomParamsType): void => {
   }
 
   openLoading();
-}
+};
 
 // 添加请求拦截器
 axios.interceptors.request.use(
@@ -131,7 +131,7 @@ axios.interceptors.request.use(
     //     return Message.warning(e);
     //   });
   },
-  (error) => {
+  error => {
     requestAfter(error.config?.customParams);
     // 对请求错误做些什么
     return Promise.reject(error);
@@ -178,7 +178,7 @@ axios.interceptors.response.use(
     }
     return Promise.reject(data);
   },
-  (error) => {
+  error => {
     requestAfter(error.config?.customParams);
 
     // 对响应错误做点什么

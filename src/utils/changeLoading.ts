@@ -1,10 +1,10 @@
 import { LoadingObserver } from "contexts/globalLoading";
 
-const openLoading: () => void = () => {
+const openLoading = (): void => {
   LoadingObserver.emit("openLoading", true);
 };
 
-const closeLoading: () => void = () => {
+const closeLoading = (): void => {
   LoadingObserver.emit("closeLoading", false);
 };
 

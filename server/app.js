@@ -9,7 +9,7 @@ dotenv.config({ path: path.join(__dirname, "../.env") });
 function setCustomCacheControl(res, path) {
   const excludeReg = [/service-worker\.js$/, /index\.html$/];
   // 不缓存的页面
-  if (excludeReg.some((v) => v.test(path))) {
+  if (excludeReg.some(v => v.test(path))) {
     // Custom Cache-Control for HTML files
     res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     res.setHeader("Pragma", "no-cache");
@@ -23,7 +23,7 @@ app.use(
   })
 );
 
-app.listen(process.env.PORT, "0.0.0.0", (err) => {
+app.listen(process.env.PORT, "0.0.0.0", err => {
   if (err) {
     console.info(err);
     return;

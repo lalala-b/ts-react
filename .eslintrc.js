@@ -84,6 +84,7 @@ module.exports = {
     "import/extensions": 0,
     "no-return-assign": 0,
     "linebreak-style": "off",
+    "arrow-parens": ["error", "as-needed"],
     "keyword-spacing": [
       2,
       {
@@ -105,6 +106,11 @@ module.exports = {
       },
     ],
     "no-shadow": 0,
+    eqeqeq: 2,
+    "no-var": "error",
+    "no-unused-vars": "warn",
+    "no-plusplus": "error",
     "import/no-unresolved": "off",
+    "no-unreachable": "error",
   },
 };

@@ -82,7 +82,7 @@ const hasJsxRuntime = (() => {
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
-module.exports = (webpackEnv) => {
+module.exports = webpackEnv => {
 	const isEnvDevelopment = webpackEnv === "development";
 	const isEnvProduction = webpackEnv === "production";
 
@@ -219,12 +219,12 @@ module.exports = (webpackEnv) => {
 			publicPath: paths.publicUrlOrPath,
 			// Point sourcemap entries to original disk location (format as URL on Windows)
 			devtoolModuleFilenameTemplate: isEnvProduction
-				? (info) =>
+				? info =>
 						path
 							.relative(paths.appSrc, info.absoluteResourcePath)
 							.replace(/\\/g, "/")
 				: isEnvDevelopment &&
-				  ((info) =>
+				  (info =>
 						path.resolve(info.absoluteResourcePath).replace(/\\/g, "/")),
 			// Prevents conflicts when multiple webpack runtimes (from different apps)
 			// are used on the same page.
@@ -308,7 +308,7 @@ module.exports = (webpackEnv) => {
 			// https://twitter.com/wSokra/status/969679223278505985
 			// https://github.com/facebook/create-react-app/issues/5358
 			runtimeChunk: {
-				name: (entrypoint) => `runtime-${entrypoint.name}`,
+				name: entrypoint => `runtime-${entrypoint.name}`,
 			},
 		},
 		resolve: {
@@ -326,8 +326,8 @@ module.exports = (webpackEnv) => {
 			// `web` extension prefixes have been added for better support
 			// for React Native Web.
 			extensions: paths.moduleFileExtensions
-				.map((ext) => `.${ext}`)
-				.filter((ext) => useTypeScript || !ext.includes("ts")),
+				.map(ext => `.${ext}`)
+				.filter(ext => useTypeScript || !ext.includes("ts")),
 			alias: {
 				// Support React Native Web
 				// https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
@@ -661,7 +661,7 @@ module.exports = (webpackEnv) => {
 						return manifest;
 					}, seed);
 					const entrypointFiles = entrypoints.main.filter(
-						(fileName) => !fileName.endsWith(".map")
+						fileName => !fileName.endsWith(".map")
 					);
 
 					return {
