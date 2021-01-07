@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import styles from "./Link.module.scss";
 
 interface LinkType {
   to: string;

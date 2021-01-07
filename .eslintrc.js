@@ -26,7 +26,7 @@ module.exports = {
     // eslint-disable-next-line max-len
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
     "import/no-extraneous-dependencies": ["error", { packageDir: "." }],
-
+    "@typescript-eslint/no-unused-vars": "error",
     // Recommend not to leave any console.log in your code
     // Use console.error, console.warn and console.info instead
     // https://eslint.org/docs/rules/no-console
@@ -108,7 +108,6 @@ module.exports = {
     "no-shadow": 0,
     eqeqeq: 2,
     "no-var": "error",
-    "no-unused-vars": "warn",
     "no-plusplus": "error",
     "import/no-unresolved": "off",
     "no-unreachable": "error",
