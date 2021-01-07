@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+// eslint-disable-next-line no-use-before-define
 import React, {useContext} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -16,7 +18,7 @@ const App: React.FC = () => {
       <Router>
         <Switch>
           {routes.map(({ path , component}) => (
-            <Route exact={true} key={path} path={path} component={component} />
+            <Route exact key={path} path={path} component={component} />
           ))}
         </Switch>
       </Router>

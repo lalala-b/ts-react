@@ -1,11 +1,13 @@
+/* eslint-disable max-len */
 import { useState, createContext } from "react";
 
-export interface GlobalLoadingType {
-    loading: boolean,
-    setLoading?: React.Dispatch<boolean>,
+declare interface GlobalLoadingType {
+  loading: boolean;
+  setLoading?: React.Dispatch<boolean>;
 }
-export interface GlobalLoadingProviderType {
-    value?: GlobalLoadingType
+
+declare interface GlobalLoadingProviderType {
+  value?: GlobalLoadingType;
 }
 
 export const GlobalLoadingContext = createContext<GlobalLoadingType>({
@@ -15,13 +17,13 @@ export const GlobalLoadingContext = createContext<GlobalLoadingType>({
 GlobalLoadingContext.displayName = "GlobalLoadingContext";
 
 interface LoadingObserverListType {
-  [key:string]: (React.Dispatch<boolean> | (() => void))[],
+  [key: string]: (React.Dispatch<boolean> | (() => void))[];
 }
 
 interface LoadingObserverType {
-  list: LoadingObserverListType,
-  on: (key: string, fn: React.Dispatch<boolean>) => void,
-  emit: (key: string, data: boolean) => void
+  list: LoadingObserverListType;
+  on: (key: string, fn: React.Dispatch<boolean>) => void;
+  emit: (key: string, data: boolean) => void;
 }
 
 export const LoadingObserver: LoadingObserverType = {
@@ -39,7 +41,10 @@ export const LoadingObserver: LoadingObserverType = {
   },
 };
 
-export const GlobalLoadingProvider: React.FC<GlobalLoadingProviderType> = ({ value, children }) => {
+export const GlobalLoadingProvider: React.FC<GlobalLoadingProviderType> = ({
+  value,
+  children,
+}) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   LoadingObserver.on("openLoading", setLoading);
