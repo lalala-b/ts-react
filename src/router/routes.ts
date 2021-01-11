@@ -1,11 +1,6 @@
 import Home from "./Home";
 
-interface RouteItemType {
-  path: string,
-  component: React.FC
-}
-
-const routes: RouteItemType[] = [
+const routes = [
   {
     path: "/",
     component: Home,
